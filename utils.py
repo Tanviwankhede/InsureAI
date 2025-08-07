@@ -64,7 +64,7 @@ def extract_text_from_pdf(path: str) -> str:
 def create_vectorstore(text: str):
     print("vectore store")
     # Split into chunks
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50)
     docs = text_splitter.create_documents([text])
 
     # Load embeddings

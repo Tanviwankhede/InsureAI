@@ -27,6 +27,9 @@ def read_root():
 class QARequest(BaseModel):
     documents: HttpUrl
     questions: List[str]
+
+from fastapi.concurrency import run_in_threadpool
+
 @app.post("/hackrx/run")
 async def run_qa(
     payload: QARequest,
@@ -41,15 +44,13 @@ async def run_qa(
         raise HTTPException(status_code=403, detail="Invalid API key.")
 
     try:
-        # Modular processing
-        print("run_qa_on_pdf")
-        answers = run_qa_on_pdf(str(payload.documents), payload.questions)
+      
+        answers = await run_in_threadpool(run_qa_on_pdf, str(payload.documents), payload.questions)
 
         return JSONResponse(content={"answers": answers})
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
-
 
 # if __name__ == "__main__":
 #     import uvicorn
