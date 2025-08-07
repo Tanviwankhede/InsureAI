@@ -47,10 +47,8 @@ async def run_qa(
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
 
-import os
+# if __name__ == "__main__":
+#     import uvicorn
 
-if __name__ == "__main__":
-    import uvicorn
-
-    port = int(os.environ.get("PORT", 8000))  # default to 8000 if not set
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+#     port = int(os.environ.get("PORT", 8000))  # default to 8000 if not set
+#     # uvicorn.run("main:app", host="0.0.0.0", port=port)
