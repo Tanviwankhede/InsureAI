@@ -13,9 +13,9 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-@app.get("/", response_class=HTMLResponse)
-async def serve_home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "title": "FastAPI Chatbot"})
+# @app.get("/", response_class=HTMLResponse)
+# async def serve_home(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request, "title": "FastAPI Chatbot"})
 
 API_KEY = os.getenv("SECRET_KEY")
 
