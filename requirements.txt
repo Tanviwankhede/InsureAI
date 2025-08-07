@@ -1,0 +1,9 @@
+jinja2
+fastapi uvicorn
+langchain
+pinecone
+pymupdf
+langchain-community
+openai
+langchain-pinecone
+google-generativeai
