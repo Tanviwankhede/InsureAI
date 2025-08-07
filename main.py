@@ -17,7 +17,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def serve_home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "title": "FastAPI Chatbot"})
 
-API_KEY = "your-secret-key"
+API_KEY = os.getenv("SECRET_KEY")
 
 # Request schema
 class QARequest(BaseModel):

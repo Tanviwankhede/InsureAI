@@ -7,8 +7,9 @@ from langchain.chat_models import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from utils import *
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 load_dotenv()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 
@@ -33,6 +34,12 @@ llm = ChatGoogleGenerativeAI(
     temperature=0.3,
     google_api_key=GOOGLE_API_KEY
 )
+
+# llm = ChatOpenAI(
+#     model="gpt-4",  
+#     temperature=0.7,
+#     openai_api_key= OPENAI_API_KEY
+# )
 
 prompt = PromptTemplate(
     template=CUSTOM_PROMPT_TEMPLATE,

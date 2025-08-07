@@ -13,14 +13,13 @@ from langchain_core.documents import Document
 import time
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-
-
 # Load environment variables
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = "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"  # or set in .env
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Pinecone configuration
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY", "pcsk_59vnbL_3kgAJHBB9AoDy73zt2T2FG3aMB2MHGXMu2JAxR2m1VKASpee7PcxD1rQv61GDuR")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 REGION = "us-east-1"
 INDEX_NAME = "chatbot-index"
 
