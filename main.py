@@ -19,6 +19,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 API_KEY = os.getenv("SECRET_KEY")
 
+@app.get("/")
+def read_root():
+    return {"message": "InsureAI is running!"}
+
 # Request schema
 class QARequest(BaseModel):
     documents: HttpUrl
